@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Masterclass</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #00FF41;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .presentation-box {
+            border: 2px solid #00FF41;
+            box-shadow: 0 0 25px rgba(0, 255, 65, 0.3);
+            width: 85%;
+            max-width: 1000px;
+            height: 75vh;
+            padding: 50px;
+            position: relative;
+            background-color: #111;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        .slide {
+            display: none;
+            animation: fade 0.6s ease-in-out;
+        }
+        .slide.active {
+            display: block;
+        }
+        h1 { 
+            text-align: center; 
+            font-size: 2.8em; 
+            text-shadow: 0 0 15px #00FF41; 
+            margin-top: 10%; 
+        }
+        h2 { 
+            border-bottom: 1px dashed #00FF41; 
+            padding-bottom: 15px; 
+            font-size: 2.2em; 
+        }
+        p { 
+            font-size: 1.5em; 
+            line-height: 1.7; 
+            margin-top: 30px; 
+        }
+        .btn-container {
+            position: absolute;
+            bottom: 40px;
+            width: calc(100% - 100px);
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            background: none;
+            border: 2px solid #00FF41;
+            color: #00FF41;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        button:hover { 
+            background: #00FF41; 
+            color: #000; 
+            box-shadow: 0 0 15px #00FF41;
+        }
+        @keyframes fade { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-box">
+        
+        <!-- Slide 1 -->
+        <div class="slide active">
+            <h1>Machine Learning: Zero Se Hero 🚀</h1>
+            <p style="text-align: center;">Welcome class! Aaj hum Machine Learning ke basics se lekar advanced concepts tak sab clear karenge. Bilkul aasan bhasha mein padhenge, no boring theory.</p>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide">
+            <h2>1. Basics: ML Aakhir Hai Kya?</h2>
+            <p>Normal programming mein hum computer ko step-by-step rules dete hain, right? Par Machine Learning mein, hum usko bahut sara data dete hain, aur bolte hain "Bhai, tu khud patterns samajh le". Jaise ek chote bacche ko dog aur cat mein farq karna sikhate hain by showing them pictures, exactly waise hi hum machines ko train karte hain.</p>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide">
+            <h2>2. Intermediate: Machine Sikhti Kaise Hai?</h2>
+            <p>Basically iske teen main tarike hote hain. Pahlah hai Supervised Learning—isme hum machine ko data aur answers dono dete hain, just like previous year question papers with solutions. Dusra hai Unsupervised Learning—isme machine khud raw data mein dhundti hai ki kya patterns hain. Aur teesra, Reinforcement Learning—jisme machine galtiyan kar ke sikhti hai, proper trial and error ke through.</p>
+        </div>
+        
+        <!-- Slide 4 -->
+        <div class="slide">
+            <h2>3. Advanced: Deep Learning & Neural Networks</h2>
+            <p>Ab aate hain sabse cool part pe. Deep learning actually humare human brain ke structure se inspired hai. Isme hum 'Artificial Neural Networks' use karte hain jisme data filter karne ke liye bahut saari hidden layers hoti hain. Aaj kal ke advanced AI, jaise aapka ChatGPT ya Tesla ki self-driving cars, sab isi heavy technology pe kaam karte hain.</p>
+        </div>
+        
+        <!-- Slide 5 -->
+        <div class="slide">
+            <h2>4. Conclusion: Next Steps</h2>
+            <p>Toh dosto, aaj ke liye bas itna hi. Machine learning ka asli maza theory mein nahi, practically hands-on code karne mein hai. Python thoda sa seekh lo, basic datasets ke sath play around karo, aur dheere dheere build karo. Thank you so much for paying attention!</p>
+        </div>
+
+        <div class="btn-container">
+            <button id="prevBtn" onclick="changeSlide(-1)">&#8592; Peeche Jao</button>
+            <button id="nextBtn" onclick="changeSlide(1)">Aage Badho &#8594;</button>
+        </div>
+    </div>
+
+    <script>
+        let current = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function changeSlide(dir) {
+            slides[current].classList.remove('active');
+            current += dir;
+            
+            if (current < 0) current = 0;
+            if (current >= slides.length) current = slides.length - 1;
+            
+            slides[current].classList.add('active');
+            
+            document.getElementById('prevBtn').style.visibility = current === 0 ? 'hidden' : 'visible';
+            document.getElementById('nextBtn').style.visibility = current === slides.length - 1 ? 'hidden' : 'visible';
+        }
+        
+        changeSlide(0); 
+    </script>
+</body>
+</html>
